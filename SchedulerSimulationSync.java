@@ -84,8 +84,14 @@ class SharedResources {
     public static void logExecution(String message) {
         // TODO: Protect this critical section with a lock
         // RACE CONDITION: ArrayList is not thread-safe!
+        //added sysnchronization for executionLog
+        lock.lock();
+    try {
         executionLog.add(message);
+    } finally {
+        lock.unlock();
     }
+        }
 }
 
 // Class representing a process that implements Runnable to be run by a thread
