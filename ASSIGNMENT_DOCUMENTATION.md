@@ -110,7 +110,7 @@ The shared variable contextSwitchCount is where the first race situation takes p
 The second race condition is seen in the ArrayList executionLog. Concurrent changes to ArrayList may result in incorrect data or runtime problems because it is not thread-safe.
 
 Unpredictable outcomes happen from threads accessing shared resources without mutual exclusion, which causes several problems.
-[Your answer here - 4-6 sentences with code examples]
+
 
 ---
 
@@ -118,8 +118,12 @@ Unpredictable outcomes happen from threads accessing shared resources without mu
 **Q**: Explain the difference between ReentrantLock and Semaphore. Where did you use each in your code and why?
 
 **Your Answer**:
+A ReentrantLock provides mutual exclusion by allowing only one thread to access a critical section at a time. In this implementation, it is used to protect shared variables such as counters and logs.
 
-[Your answer here - explain your implementation choices]
+A Semaphore controls access to a limited number of resources. In this code, a semaphore with one permit is used to simulate CPU access, ensuring only one process executes at a time.
+
+Locks ensure data consistency, while semaphores control resource allocation.
+
 
 ---
 
@@ -127,8 +131,11 @@ Unpredictable outcomes happen from threads accessing shared resources without mu
 **Q**: What is deadlock? Explain TWO prevention techniques and what you did to prevent deadlocks in your code.
 
 **Your Answer**:
-
-[Your answer here - reference try-finally blocks, lock ordering, etc.]
+Deadlock occurs when multiple threads are waiting indefinitely for resources held by each other.
+Two prevention techniques are:
+1-Using try-finally blocks to ensure locks are always released.
+2-Avoiding nested locks and maintaining a consistent locking order.
+In this code, deadlocks are prevented by releasing locks in finally blocks and using a single lock.
 
 ---
 
@@ -140,9 +147,13 @@ Unpredictable outcomes happen from threads accessing shared resources without mu
 - Given that the three counters are independent, which approach provides better concurrency and why?
 
 **Your Answer**:
+I used a single lock (coarse-grained locking) to protect all shared counters.
 
-[Your answer here - explain coarse-grained vs fine-grained locking, independence of counters, concurrency implications. Show understanding of when to use each approach. 5-8 sentences expected.]
+This simplifies the design and reduces the risk of deadlocks. However, it limits concurrency because only one thread can access any counter at a time.
 
+Fine-grained locking would allow higher concurrency but increases complexity and risk of errors.
+
+Since the counters are independent, fine-grained locking could provide better performance, but for simplicity and safety, coarse-grained locking was chosen.
 ---
 
 ## Part 3: Synchronization Analysis (1 mark)
@@ -150,52 +161,58 @@ Unpredictable outcomes happen from threads accessing shared resources without mu
 ### Critical Section #1: Counter Variables
 
 **Which variables**: 
-
+contextSwitchCount, completedProcessCount, totalWaitingTime
 **Why they need protection**: 
-
+Because multiple threads update them concurrently
 **Synchronization mechanism used**: 
-
+ReentrantLock
 **Code snippet**:
-```java
-// Paste your implementation here
-```
+    'lock.lock();
+    try {
+        contextSwitchCount++;
+    } finally {
+        lock.unlock();
+    }'
 
 **Justification**: 
-
+Ensures atomic updates and prevents race conditions
 ---
 
 ### Critical Section #2: Execution Log
 
 **What resource**: 
-
+executionLog (ArrayList)
 **Why it needs protection**: 
-
+ArrayList is not thread-safe
 **Synchronization mechanism used**: 
-
+ReentrantLock
 **Code snippet**:
-```java
-// Paste your implementation here
-```
+    `lock.lock();
+    try {
+        executionLog.add(message);
+    } finally {
+        lock.unlock();
+    }`
 
 **Justification**: 
-
+Prevents concurrent modification issues
 ---
 
 ### Critical Section #3: CPU Semaphore
 
 **Purpose of semaphore**: 
-
+To control CPU access
 **Number of permits and why**: 
-
+1 → simulate single CPU
 **Where implemented**: 
-
+Inside run() method
 **Code snippet**:
-```java
-// Paste your implementation here
-```
+`SharedResources.cpuSemaphore.acquire();
+...
+SharedResources.cpuSemaphore.release();`
 
 **Effect on program behavior**: 
-
+Ensures only one process runs at a time
 ---
 
 ## Part 4: Testing and Verification (2 marks)
