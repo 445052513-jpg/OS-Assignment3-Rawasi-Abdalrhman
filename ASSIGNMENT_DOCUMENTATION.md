@@ -309,7 +309,7 @@ I learned that the performance and behavior of scheduling algorithms are highly 
 ### What I learned about synchronization:
 
 [6-8 sentences about key concepts, challenges, insights]
-
+Through this assignment, I gained a deeper understanding of synchronization in multi-threaded systems. I learned that race conditions occur when multiple threads access shared resources without proper coordination, leading to unpredictable results. Using ReentrantLock allowed me to enforce mutual exclusion and protect critical sections effectively. I also learned how semaphores can be used to control access to limited resources, such as simulating a single CPU. One important insight was the necessity of using try-finally blocks to ensure locks are always released, preventing deadlocks. Additionally, I understood the trade-offs between simplicity and performance when choosing synchronization strategies. Overall, this assignment helped me connect theoretical concepts from operating systems with practical implementation in Java.
 ---
 
 ### Real-world applications:
@@ -317,15 +317,17 @@ I learned that the performance and behavior of scheduling algorithms are highly 
 Give TWO examples where synchronization is critical:
 
 **Example 1**: 
+Banking systems where multiple users access and update account balances simultaneously. Synchronization ensures that transactions are processed correctly without data corruption.
 
 **Example 2**: 
-
+Operating system process scheduling, where multiple processes compete for CPU time. Synchronization ensures fair and correct allocation of resources.
 ---
 
 ### How I would explain synchronization to others:
 
 [Explain to someone who just finished Assignment 1 - use simple terms and analogies]
 
+I would explain synchronization as a way to organize access to shared resources when multiple threads are running at the same time. Imagine several people trying to write in the same notebook at once—without coordination, the content would become messy and incorrect. Synchronization acts like a rule that allows only one person to write at a time or limits how many people can access the notebook. In programming, we use tools like locks and semaphores to enforce these rules and ensure that data remains correct and consistent.
 ---
 
 ## Part 6: GitHub Repository Information
