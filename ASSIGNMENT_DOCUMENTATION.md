@@ -1,8 +1,8 @@
 # Assignment 3 - Complete Documentation
 
-**Student Name**: [Your Full Name]  
-**Student ID**: [Your ID]  
-**Date Submitted**: [Submission Date]
+**Student Name**: rawasi abdalrhman alotaibi 
+**Student ID**:445052513
+**Date Submitted**: 7/ may /2026
 
 ---
 
@@ -31,69 +31,69 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
+### Entry 1 - [May 4, 2026 (7:00 PM)]
 **What I implemented**: 
-
+I found shared resources like contextSwitchCount, completedProcessCount, totalWaitingTime, and executionLog by examining the supplied code.
 **Challenges encountered**: 
-
+Recognizing potential instances of race situations in the code
 **How I solved it**: 
-
+I went over Operating System Concepts' Chapter 3,5 and noted important passages.
 **Testing approach**: 
-
+Code execution tracing by hand
 **Time spent**: 
-
+2 hours
 ---
 
-### Entry 2 - [Date, Time]
+### Entry 2 - [May 5, 2026 (6:30 PM)]
 **What I implemented**: 
-
+To safeguard shared variables, I used ReentrantLock.
 **Challenges encountered**: 
-
+Making certain that every crucial area was adequately secured
 **How I solved it**: 
-
+Try-finally blocks were used to ensure lock release.
 **Testing approach**: 
-
+To ensure uniformity, run the software several times.
 **Time spent**: 
-
+2 hours and 30 minute
 ---
 
-### Entry 3 - [Date, Time]
+### Entry 3 - [May 6, 2026 (5:00 PM)]
 **What I implemented**: 
-
+I implemented Semaphore to control CPU access
 **Challenges encountered**: 
-
+Understanding where to place acquire() and release()
 **How I solved it**: 
-
+Placed acquire at start of run() and release in finally block
 **Testing approach**: 
-
+Observed process execution order
 **Time spent**: 
-
+2 hours
 ---
 
-### Entry 4 - [Date, Time]
+### Entry 4 - [May 6, 2026 (8:00 PM)]
 **What I implemented**: 
-
+Tested the full program and verified output correctness
 **Challenges encountered**: 
-
+Ensuring no deadlocks occur
 **How I solved it**: 
-
+Used proper lock handling and avoided nested locks
 **Testing approach**: 
-
+Multiple executions
 **Time spent**: 
-
+1 hours and 30 minute
 ---
 
-### Entry 5 - [Date, Time]
+### Entry 5 - [May 6, 2026 (10:00 PM)]
 **What I implemented**: 
-
+Prepared documentation and final review
 **Challenges encountered**: 
-
+Connecting theory with implementation
 **How I solved it**: 
-
+Referenced textbook concepts
 **Testing approach**: 
-
+Final validation run
 **Time spent**: 
-
+1 hour
 ---
 
 ## Part 2: Technical Questions (1 mark)
@@ -105,7 +105,11 @@ Document your development process with **minimum 3 entries** showing progression
 - What incorrect behavior could occur?
 
 **Your Answer**:
+The shared variable contextSwitchCount is where the first race situation takes place. This variable is incremented concurrently by several threads without synchronization, which may result in lost updates and inaccurate counts.
 
+The second race condition is seen in the ArrayList executionLog. Concurrent changes to ArrayList may result in incorrect data or runtime problems because it is not thread-safe.
+
+Unpredictable outcomes happen from threads accessing shared resources without mutual exclusion, which causes several problems.
 [Your answer here - 4-6 sentences with code examples]
 
 ---
