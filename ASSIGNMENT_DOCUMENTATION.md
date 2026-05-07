@@ -2,7 +2,7 @@
 
 **Student Name**: [Leen Sultan]  
 **Student ID**: [445052128]  
-**Date Submitted**: [2/Apr/2026]
+**Date Submitted**: [7/may/2026]
 
 ---
 
@@ -14,11 +14,9 @@
 > Set sharing to "Anyone with the link can view".
 > Test the link in incognito/private mode before submitting.
 
-**Video Link**: [https://drive.google.com/file/d/1kKZM1G3FGZtLfL0Gso_e4CTO87QpXYJz/view?usp=drivesdk]
+**Video Link**: [https://drive.google.com/file/d/10CBTjdZPLl8ue1mqCIeYbFFXGshr3aD2/view?usp=drivesdk]
 
-
-**Video filename**: `[YourStudentID]_Assignment3_Synchronization.mp4`
-
+****Video Link**:[445052128]_Assignment3_Synchronization.mp4
 **Verification**:
 - [ ] Link is accessible (tested in incognito mode)
 - [ ] Video is 3-5 minutes long
@@ -32,7 +30,7 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
+### Entry 1 - [May 6, 2026 (7:00 PM)]
 **What I implemented**: 
 I added synchronization mechanisms using ReentrantLock and Semaphore inside the SharedResources class.
 
@@ -50,7 +48,7 @@ I ran the program several times and checked whether the counters changed correct
 
 ---
 
-### Entry 2 - [Date, Time]
+### Entry 2 - [May 6, 2026 (10:00 PM)]
 **What I implemented**: 
 I synchronized the execution log list to prevent concurrent modification issues.
 
@@ -68,7 +66,7 @@ I executed multiple processes simultaneously and verified that log entries were 
 
 ---
 
-### Entry 3 - [Date, Time]
+### Entry 3 - [May 7, 2026 (1:00 AM)]
 **What I implemented**: 
 I added the CPU semaphore acquisition and release inside the run() method.
 
@@ -86,7 +84,7 @@ I checked that all processes completed execution without freezing.
 
 ---
 
-### Entry 4 - [Date, Time]
+### Entry 4 - [May 7, 2026 (4:00 PM)]
 **What I implemented**: 
 I tested the scheduler behavior with different process burst times and priorities.
 
@@ -104,7 +102,7 @@ I compared the output with expected scheduling behavior.
 
 ---
 
-### Entry 5 - [Date, Time]
+### Entry 5 - [May 7, 2026 (7:00 PM)]
 **What I implemented**: 
 I completed the final documentation and verified all GitHub commits.
 
